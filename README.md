@@ -1,32 +1,18 @@
-# Lemming
+<img src="assets/logo.png" alt="lemming" width="300">
 
-Lemming is a portable music player I'm creating using an ESP32-S3.
+---
 
-The idea came about because I got tired of using my phone for music. Phones are convenient, but they bring notifications, messaging apps, and many distractions that compete for my attention.
+lemming is a focused, offline-first, open-source portable music player.
 
-I wanted something simpler.
+Music comes first. Everything else is secondary.
 
-Put some MP3s on a microSD card. Plug in headphones. Press play.
+The project uses an ESP32-S3, runs Rust firmware, and is designed to be simple by removing unnecessary complexity rather than adding features.
 
-This project is completely open source. The firmware, PCB, enclosure, and documentation can all be found in this repository.
+Local files are first-class. The companion app is optional. Configuration is transparent.
 
 ## Current Status
 
-It's very much a work in progress.
-
-Right now, I am designing the hardware and slowly developing the firmware. Nothing has been built yet.
-
-Current goals for v1:
-
-* MP3 playback
-* Album art
-* Fast library browsing
-* Resume after power loss
-* USB-C charging
-* 10+ hour battery life
-* Physical controls only
-
-## Hardware
+The project is in active development. Hardware design and firmware architecture are being defined.
 
 Current v1 hardware targets:
 
@@ -40,13 +26,50 @@ Current v1 hardware targets:
 | Battery       | 1500–2500 mAh LiPo    |
 | Charging      | USB-C + BQ24074       |
 
-The exact bill of materials will likely change before the first PCB revision.
+Current v1 software goals:
 
-## Why "Lemming"?
+- MP3 playback
+- Album art
+- Fast library browsing
+- Resume after power loss
+- USB-C charging
+- 10+ hour battery life
+- Physical controls only
 
-Honestly, because the name made me laugh, and I chose it before the project had a schematic, firmware design, or even a rough sketch.
+## Design Principles
 
-The name stuck. 
+- Music comes first.
+- Offline-first.
+- Local files are first-class.
+- Companion app is optional.
+- Configuration is transparent.
+- Prefer open standards over proprietary formats.
+- Remove complexity before adding features.
+- If a feature requires typing on the device, it probably doesn't belong on lemming.
+- Firmware owns behavior.
+- Configuration owns customization.
+
+## Repository Ecosystem
+
+lemming is organized across multiple repositories:
+
+- **firmware** — Rust application, platform drivers, and page compiler
+- **hardware** — Schematics, PCB layout, BOM, and CAD files
+- **companion** — Optional desktop/mobile companion application
+- **lmngdsl** — Standalone declarative UI description language and compiler
+- **docs** — Project documentation
+
+## Canonical Locations
+
+Website: https://lemming.cc
+
+Documentation: https://docs.lemming.cc
+
+GitHub Organization: github.com/lemming-dev
+
+## Why "lemming"?
+
+Honestly, because the name was cute, and it was chosen before the project had a schematic, firmware design, or even a rough sketch. The name stuck.
 
 ## Contributing
 
