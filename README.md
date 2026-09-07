@@ -59,7 +59,7 @@ lemming is organized across multiple repositories:
 - **lmngdsl** — Standalone declarative UI description language and compiler
 - **docs** — Project documentation
 
-## Canonical Locations
+## Canonical Locations (we haven't registered these yet, sorry)
 
 Website: https://lemming.cc
 
