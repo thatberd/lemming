@@ -51,36 +51,62 @@ GPIO35–37 are reserved internally by octal PSRAM.
 
 # Display
 
-## 3.2" 240×320 SPI TFT
+## ER-TFT032IPS-3.2 (3.2" 240×320 IPS TFT)
 
-| Field       | Value     |
-| ----------- | --------- |
-| Resolution  | 240×320   |
-| Interface   | SPI       |
-| Orientation | Portrait  |
-| Status      | Candidate |
+| Field             | Value                                      |
+| ----------------- | ------------------------------------------ |
+| Manufacturer      | EastRising                                 |
+| Part Number       | ER-TFT032IPS-3.2                           |
+| Function          | Primary display                            |
+| Resolution        | 240 × 320                                  |
+| IC                | ST7789V2                                   |
+| Interface         | 3-wire SPI, 4-wire SPI, 8080 8/16-bit Parallel |
+| Display Type      | IPS TFT-LCD Color                          |
+| Diagonal Size     | 3.2"                                       |
+| Outline Dimension | 55.04 × 77.50 × 2.5 mm                     |
+| Visual Area       | 50.20 × 66.40 mm                           |
+| Active Area       | 48.60 × 64.80 mm                           |
+| Pixel Pitch       | 0.2025 × 0.2025                            |
+| IC Package        | COG                                        |
+| Connection        | Plug-in FPC, 40-pin 0.50mm pitch ZIF connector |
+| Contrast Ratio    | 800:1                                      |
+| Colors            | 65K / 262K                                 |
+| Viewing Angle     | IPS, 80° all directions                    |
+| Brightness        | 250 cd/m²                                  |
+| Backlight Color   | White                                      |
+| Backlight Current | 120 mA typical                             |
+| Power Supply      | 2.8 V typical                              |
+| Touch Panel       | Optional capacitive (FT6236)               |
+| Operating Temp    | -20°C ~ 70°C                               |
+| Storage Temp      | -30°C ~ 80°C                               |
+| Status            | Selected                                   |
 
-### Requirements
+### Why
 
-* 3.2 inch size
-* SPI interface
-* 240×320 resolution
-* Stable long-term availability
+* IPS panel with 80° viewing angle in all directions
+* 240 × 320 resolution fits the project's pixel-art album art design
+* ST7789V2 is well-supported in embedded Rust display drivers
+* Long-term continuity supply guaranteed until at least 2033
+* Low BOM cost (~US$8.97)
+
+### Alternatives
+
+| Part                   | Notes                  |
+| ---------------------- | ---------------------- |
+| ER-TFT032A3-3-4334      | Same size/resolution, different connector footprint |
+| ILI9341-based 3.2" panel | Wider software support, TN panel |
 
 ### Notes
 
-Controller may vary:
+Touch panel is included by default with capacitive controller FT6236.
 
-* ILI9341
-* ST7789
+Firmware should disable touch if unused to reduce power consumption.
 
-Firmware should support both through mipidsi.
+ZIF connector is 40 pins at 0.50mm pitch. PCB footprint must match ER-CON40HT-1 drawing.
 
-### Open Questions
+Interface: firmware should default to 4-wire SPI for simplicity. Parallel interfaces are available if bandwidth becomes a bottleneck.
 
-* Exact panel supplier
-* Exact FPC pinout
-* Connector footprint
+Backlight current is 120 mA at full brightness. Consider a brightness limit during battery operation.
 
 ---
 
@@ -358,8 +384,6 @@ Unbroken ground plane is mandatory.
 
 # Components Still Needing Selection
 
-* Exact display panel
-* Display FPC connector
 * Scroll wheel encoder model
 * USB-C connector part number
 * Headphone jack part number

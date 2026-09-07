@@ -558,9 +558,54 @@ Artificial delays create the impression that the device is slower than it is.
 
 ---
 
+# DD-017: EastRising ER-TFT032IPS-3.2 Display
+
+**Date:** July 2026
+
+## Decision
+
+Use the EastRising ER-TFT032IPS-3.2 as the primary display for Lemming v1.
+
+## Why
+
+The original design left the exact display panel and supplier as open questions.
+
+The ER-TFT032IPS-3.2 meets all requirements:
+
+* 3.2 inch diagonal
+* 240 × 320 resolution
+* IPS panel with 80° viewing angle in all directions
+* ST7789V2 controller with well-supported SPI interface
+* Long-term continuity supply guaranteed until at least 2033
+* Low BOM cost (~US$9)
+
+The parallel interface options (8080 8/16-bit) provide headroom if SPI bandwidth becomes a bottleneck.
+
+The controller is already supported by existing Rust display driver crates.
+
+## Consequences
+
+### Positive
+
+* IPS panel fits the pixel-art aesthetic and viewing-angle requirements
+* Stable long-term supply
+* Inexpensive
+* Optional capacitive touch panel (FT6236) can be disabled in firmware to save power
+
+### Negative
+
+* Touch panel is included by default even if unused
+* Backlight draws 120 mA at full brightness
+
+## Alternatives Considered
+
+* ER-TFT032A3-3-4334 - Same size, different connector footprint
+* ILI9341-based 3.2" panel - Wider software support, TN panel with poorer viewing angles
+
+---
+
 # Future Decisions To Make
 
-* Final display supplier
 * Final scroll wheel model
 * Battery supplier
 * Theme format specification

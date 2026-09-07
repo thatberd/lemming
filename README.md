@@ -19,7 +19,7 @@ Current v1 hardware targets:
 | Component     | Part                  |
 | ------------- | --------------------- |
 | MCU           | ESP32-S3-WROOM-1-N8R8 |
-| Display       | 3.2" 240×320 SPI TFT  |
+| Display       | 3.2" 240×320 IPS TFT (ST7789V2) — EastRising ER-TFT032IPS-3.2 |
 | Storage       | microSD               |
 | DAC           | PCM5102A              |
 | Headphone Amp | TPA6132A2             |
